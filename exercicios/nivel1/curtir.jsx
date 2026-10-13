@@ -16,22 +16,24 @@ export default function Curtidas () {
 
             
 
-            {curtido == true ? (
-                <View style={styles.resultadoContainer}>
-                    <FontAwesome6 
-                    name="heart"
-                    solid={curtido}
-                    size={20}
-                    color="red"
-                    />   
-                </View>
-            ): <TouchableOpacity onPress={() => {setCurtido(true)}}>
-            <FontAwesome6 
-                name="heart"
-                size={20}
-                color="red"
-                />
-        </TouchableOpacity>}
+            {curtido ? (
+                <TouchableOpacity onPress={() => setCurtido(false)}>
+                    <FontAwesome6
+                        name="heart"
+                        size={20}
+                        color="red"
+                        solid
+                    />
+                </TouchableOpacity>
+            ) : (
+                <TouchableOpacity onPress={() => setCurtido(true)}>
+                    <FontAwesome6
+                        name="heart"
+                        size={20}
+                        color="red"
+                    />
+                </TouchableOpacity>
+            )}
 
             <TouchableOpacity onPress={() => {setCurtidas(curtidas + 1)}}><Text>Curtir</Text></TouchableOpacity>
         </View>
